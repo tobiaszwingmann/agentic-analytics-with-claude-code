@@ -1,0 +1,82 @@
+# Semantic-layer template
+
+version: "1.0"
+
+metadata:
+  name: null
+  description: null
+  owner: null
+
+sources:
+  - name: null
+    type: null                 # database, file, API, warehouse, etc.
+    location: null
+    objects:
+      - name: null             # table, view, file, endpoint, etc.
+        description: null
+        grain: null            # what one row represents
+        primary_key: []
+        fields:
+          - name: null
+            data_type: null
+            description: null
+            normalization: null
+
+entities:
+  - name: null
+    description: null
+    source_object: null
+    grain: null
+    key: []
+    deduplication: null
+
+relationships:
+  - name: null
+    from_entity: null
+    to_entity: null
+    cardinality: null
+    join: null
+
+dimensions:
+  - name: null
+    description: null
+    entity: null
+    source_field: null
+    data_type: null
+    definition_status: null   # governed or proposed
+
+metrics:
+  - name: null
+    description: null
+    entity: null
+    unit: null
+    definition: null
+    required_parameters: []
+    allowed_dimensions: []
+    sql:
+      dialect: null            # sqlite, postgres, bigquery, etc.
+      query: null              # multiline SQL stored directly in the YAML
+    definition_status: null   # governed or proposed
+
+governance:
+  read_before_analysis: true
+  governed_metrics_use_embedded_sql: true
+  allow_governed_metric_sql_rewrite: false
+  missing_or_ambiguous_definition: "ask"
+  proposed_definitions_are_governed: false
+
+quality_checks:
+  - name: null
+    description: null
+    stage: null                # source, post_preparation, or analysis_gate
+    target: null               # source object, entity, or metric
+    severity: null             # warning or error
+    sql:
+      dialect: null
+      query: null              # read-only SQL returning the checked value
+    pass_condition: null       # e.g. "violations = 0"
+
+proposed_additions:
+  dimensions: []
+  metrics: []
+  notes: []

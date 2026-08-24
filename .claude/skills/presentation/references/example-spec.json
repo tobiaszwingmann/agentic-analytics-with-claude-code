@@ -1,0 +1,151 @@
+{
+  "_comment": "Worked example: the release v2.4 pyramid from pyramid-principle.md, built for a steering committee (11 slides + appendix). Image paths must exist before building - render them into presentations/assets/<slug>/ first.",
+
+  "meta": {
+    "title": "Release v2.4 delivery outlook",
+    "subtitle": "Monte Carlo forecast from 12 weeks of observed throughput",
+    "audience": "Engineering leadership",
+    "date": "19 August 2026",
+    "footer": "Release v2.4 delivery outlook",
+    "as_of": "2026-08-19"
+  },
+
+  "slides": [
+    {
+      "type": "title",
+      "notes": "Ten minutes. The date is the news; everything after slide 2 is why."
+    },
+    {
+      "type": "governing_thought",
+      "title": "v2.4 will not make 15 October - plan for 1 November and decide what to cut",
+      "statement": "At the team's observed pace, v2.4 finishes 25 October at best and 1 November with the confidence a commitment needs - six weeks past the date currently on the roadmap.",
+      "supports": [
+        "The remaining scope is 84 issues and the backlog has not shrunk in four weeks.",
+        "Throughput is stable at 8-9 issues per week, so there is no ramp to hope for.",
+        "Even the optimistic tail of 10,000 simulations lands after 15 October."
+      ],
+      "takeaway": "The choice is not whether to slip, but whether to slip the date or the scope.",
+      "notes": "Do not soften this. If they push back, the numbers are in the next three sections."
+    },
+    {
+      "type": "kpi",
+      "title": "The forecast in three numbers",
+      "kpis": [
+        { "value": "25 Oct", "label": "P50 - coin-flip finish date" },
+        { "value": "1 Nov", "label": "P85 - the date worth committing to", "emphasis": "highlight" },
+        { "value": "0%", "label": "probability of hitting 15 October" }
+      ],
+      "takeaway": "Not one of 10,000 simulated futures finished by 15 October."
+    },
+
+    {
+      "type": "section",
+      "number": 1,
+      "statement": "The remaining scope is 84 issues and it is not shrinking"
+    },
+    {
+      "type": "chart",
+      "title": "Open scope has been flat since mid-July despite steady delivery",
+      "image": "presentations/assets/release-v24-outlook/remaining-scope.png",
+      "source": "data/prepared/release-v24-forecast.parquet, as of 2026-08-19",
+      "takeaway": "Work is being closed at the same rate it is being added - the backlog is not converging."
+    },
+
+    {
+      "type": "section",
+      "number": 2,
+      "statement": "Throughput is stable, so there is no recovery to plan around"
+    },
+    {
+      "type": "bullets",
+      "title": "Twelve weeks of history show a steady team, not a slowing one",
+      "bullets": [
+        {
+          "text": "Weekly throughput sits between 6 and 11 issues with no trend",
+          "sub": ["Team-wide scope; release-only throughput is too thin to model."]
+        },
+        {
+          "text": "No week in the window delivered enough to close a six-week gap",
+          "sub": ["Closing it needs roughly 14 issues per week, sustained."]
+        },
+        "Scope growth is modelled at 1.0 - any splits or discovered work make this worse, never better."
+      ],
+      "takeaway": "A stable team cannot absorb a six-week gap; only a scope or date decision can."
+    },
+
+    {
+      "type": "section",
+      "number": 3,
+      "statement": "Every simulated future finishes after 15 October"
+    },
+    {
+      "type": "table",
+      "title": "The percentile table leaves no reading that reaches 15 October",
+      "columns": ["Confidence", "Weeks remaining", "Completion date"],
+      "rows": [
+        ["P50", "9", "25 Oct 2026"],
+        ["P70", "9", "25 Oct 2026"],
+        ["P85", "10", "1 Nov 2026"],
+        ["P95", "11", "8 Nov 2026"]
+      ],
+      "highlight_rows": [2],
+      "takeaway": "P85 - 1 November - is the date to put in front of the steering committee."
+    },
+
+    {
+      "type": "two_col",
+      "title": "Two options close the gap - and only one of them is free",
+      "left": {
+        "heading": "Move the date",
+        "bullets": [
+          "Commit to 1 November at 85% confidence",
+          "No scope negotiation needed",
+          "Downstream launch dependencies shift six weeks"
+        ]
+      },
+      "right": {
+        "heading": "Cut the scope",
+        "bullets": [
+          "Removing ~40 issues brings P85 to mid-October",
+          "Needs a product call on which 40",
+          "Launch date holds"
+        ]
+      },
+      "takeaway": "Adding people is absent from this slide on purpose - it does not move a 10-week forecast."
+    },
+    {
+      "type": "next_steps",
+      "title": "Three decisions this week keep the November date credible",
+      "steps": [
+        {
+          "action": "Confirm 1 November as the committed date, or authorise a scope cut",
+          "owner": "Eng leadership",
+          "when": "by Fri 21 Aug"
+        },
+        {
+          "action": "If cutting: nominate the 40 issues to drop from v2.4",
+          "owner": "Product",
+          "when": "by Wed 26 Aug"
+        },
+        {
+          "action": "Re-run the forecast after the decision and re-baseline",
+          "owner": "Delivery",
+          "when": "week of 31 Aug"
+        }
+      ],
+      "takeaway": "Every week without a decision moves both dates by a week."
+    },
+
+    { "type": "appendix_divider" },
+    {
+      "type": "appendix",
+      "title": "Method and assumptions",
+      "bullets": [
+        "10,000 trials, random seed 42, sampling weekly throughput with replacement",
+        "History window: last 12 complete weeks; team-wide throughput scope",
+        "Scope growth factor 1.0 - no allowance for splits or discovery",
+        "Input: data/prepared/release-v24-forecast.parquet (1,134 rows), as of 2026-08-19"
+      ]
+    }
+  ]
+}

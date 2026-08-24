@@ -1,0 +1,44 @@
+{
+  "_comment": "Design system for the generated deck. Swapping in a branded template.pptx means editing this file to match it - the build script reads every colour, font and dimension from here.",
+  "slide": { "width_in": 13.333, "height_in": 7.5 },
+  "colors": {
+    "text": "1F2933",
+    "text_on_accent": "FFFFFF",
+    "muted": "6B7280",
+    "accent": "0F5E7A",
+    "accent_soft": "E4EEF2",
+    "highlight": "C2410C",
+    "highlight_soft": "FBE9E0",
+    "rule": "D6DCE1",
+    "background": "FFFFFF",
+    "band": "F4F6F8"
+  },
+  "fonts": { "heading": "Arial", "body": "Arial" },
+  "sizes": {
+    "deck_title": 40,
+    "deck_subtitle": 17,
+    "action_title": 24,
+    "section_number": 13,
+    "section_statement": 30,
+    "governing": 28,
+    "support": 15,
+    "body": 16,
+    "body_sub": 13,
+    "kpi_value": 34,
+    "kpi_label": 12,
+    "takeaway": 14,
+    "table": 12,
+    "footer": 9
+  },
+  "grid": {
+    "margin_left_in": 0.7,
+    "margin_right_in": 0.7,
+    "title_top_in": 0.5,
+    "title_height_in": 1.05,
+    "body_top_in": 1.85,
+    "body_height_in": 4.15,
+    "takeaway_top_in": 6.15,
+    "takeaway_height_in": 0.72,
+    "footer_top_in": 7.02
+  }
+}
